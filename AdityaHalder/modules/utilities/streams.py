@@ -7,6 +7,8 @@ from ...console import USERBOT_PICTURE
 from asyncio.queues import QueueEmpty
 from ntgcalls import InputMode
 from pytgcalls.types import *
+from pytgcalls import Stream, AudioStream, VideoStream
+from pytgcalls.types import AudioParameters, VideoParameters
 from pytgcalls.types.input_stream import *
 from youtubesearchpython.__future__ import VideosSearch
 
