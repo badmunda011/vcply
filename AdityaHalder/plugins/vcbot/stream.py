@@ -1,6 +1,7 @@
 from asyncio.queues import QueueEmpty
 from pyrogram import filters
 from pytgcalls.exceptions import GroupCallNotFound
+from pyrogram.errors import MessageIdInvalid
 
 from ... import *
 from ...modules.mongo.streams import *
@@ -11,11 +12,16 @@ from ...modules.utilities.streams import *
 
 # Audio Player
 
+
 @app.on_message(cdz(["ply", "play"]) & ~filters.private)
 @sudo_users_only
 async def audio_stream(client, message):
     chat_id = message.chat.id
-    aux = await eor(message, "**Processing ...**")
+    try:
+        aux = await eor(message, "**Processing ...**")
+    except MessageIdInvalid:
+        print("Message ID is invalid")
+        return
     audio = (
         (
             message.reply_to_message.audio
@@ -61,8 +67,8 @@ async def audio_stream(client, message):
             await call.join_group_call(chat_id, stream)
             await aux.edit("Playing!")
     except Exception as e:
-       print(f"Error: {e}")
-       return await aux.edit("**Please Try Again !**")
+        print(f"Error: {e}")
+        return await aux.edit("**Please Try Again !**")
     except:
         return
 
