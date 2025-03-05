@@ -6,6 +6,7 @@ from ..clients.clients import call
 from ...console import USERBOT_PICTURE
 from asyncio.queues import QueueEmpty
 from ntgcalls import InputMode
+from pytgcalls import StreamType
 from pytgcalls import PyTgCalls, StreamType
 from pytgcalls.types import AudioParameters, VideoParameters, Stream
 from pytgcalls.types.input_stream import AudioStream, VideoStream
