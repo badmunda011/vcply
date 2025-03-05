@@ -5,6 +5,7 @@ from . import queues
 from ..clients.clients import call
 from ...console import USERBOT_PICTURE
 from asyncio.queues import QueueEmpty
+from ntgcalls import NTgCalls, StreamType, InputMode, AudioParameters, VideoParameters, Stream, AudioStream, VideoStream
 from ntgcalls import PyTgCalls, StreamType, InputMode, AudioParameters, VideoParameters, Stream, AudioStream, VideoStream
 from youtubesearchpython.__future__ import VideosSearch
 from yt_dlp.utils import DownloadError, ExtractorError, GeoRestrictedError
