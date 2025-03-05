@@ -5,9 +5,7 @@ from . import queues
 from ..clients.clients import call
 from ...console import USERBOT_PICTURE
 from asyncio.queues import QueueEmpty
-from ntgcalls import InputMode
-from pytgcalls import StreamType
-from pytgcalls import PyTgCalls, StreamType
+from pytgcalls import InputMode, PyTgCalls, StreamType
 from pytgcalls.types import AudioParameters, VideoParameters, Stream
 from pytgcalls.types.input_stream import AudioStream, VideoStream
 from youtubesearchpython.__future__ import VideosSearch
@@ -42,7 +40,6 @@ async def get_stream(link, type):
             "no_warnings": True,
             "cookiefile": COOKIES_FILE_PATH,  # Add cookies file
         }
-
     elif type == "Video":
         ydl_opts = {
             "format": "(bestvideo[height<=?720][width<=?1280][ext=mp4])+(bestaudio[ext=m4a])",
